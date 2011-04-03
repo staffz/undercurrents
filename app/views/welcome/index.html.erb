@@ -1,0 +1,27 @@
+<div style="margin: 200px 0px 0px 300px; width: 500px; float: left;">
+	<img src="/images/logo.png" alt="test" style="margin-bottom: 20px"/>
+	<p>Undercurrents provides technical gameplay support to traditional tabletop role-playing by providing alternate communication channels, note taking support and media control. The aim is not to mediate the play activity completely, but rather to enhance the interaction through the inclusion of modern ICT. Undercurrents attempts to harness the boundless creativity of tabletop role-playing when combined with the strengths of computer role-playing; in effect, both eating the cookie and having it.</p>
+</div>
+
+
+
+<div style="margin: 200px 0px 0px 200px; width: 200px; float: left;">
+
+<% if authorized? %>
+ <h1>Create new game</h1>
+	<% if flash[:error]%>
+		<p style="color: red"><%= flash[:error] %></p>
+	<% end %>
+<%= form_tag :controller => :games  do %>
+	Name: <input type="text" value="" name="game[name]"> <br /><br />
+	<input type="submit" value="Create Game" >
+ </form>
+<% end %>
+<% else %>
+<a href="/login">	Login to create a new game </a>
+
+<% end %>
+
+
+
+</div>

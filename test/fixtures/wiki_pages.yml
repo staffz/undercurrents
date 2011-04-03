@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: MyString
+  content: MyText
+  version: 1
+  game_id: 1
+
+two:
+  url: MyString
+  content: MyText
+  version: 1
+  game_id: 1
