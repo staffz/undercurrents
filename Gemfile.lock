@@ -1,6 +1,14 @@
+GIT
+  remote: git://github.com/xspond/acts_as_versioned.git
+  revision: 6c5ef375908e9370fde59dbc1a649c1639d8e08e
+  branch: rails3
+  specs:
+    acts_as_versioned (0.5.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.7)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -74,6 +82,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
+  acts_as_versioned!
   configatron (= 2.6.3)
   rails (= 3.0.3)
   sqlite3-ruby

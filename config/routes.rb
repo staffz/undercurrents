@@ -2,6 +2,11 @@ Undercurrents::Application.routes.draw do
   resources :users
   resources :welcome
   resources :games
+  
+  match '/wikis/:page_name/edit'  => 'wiki#edit'
+  match '/wikis/:page_name/update'  => 'wiki#update'  
+  match '/wikis/:page_name'       => 'wiki#find_or_create'
+
 
   resource :session, :only => [:new, :create, :destroy]
 
@@ -15,7 +20,6 @@ Undercurrents::Application.routes.draw do
 
   match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
 
-  match '/wiki/:page_name' => 'wiki#find_or_create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,9 @@
+<h1><%= @wikipage.url%></h1>
+
+
+<%= form_tag "/wikis/" + @wikipage.url + "/update", :method => :put do %>
+
+<textarea name="wiki_page[content]" style="width: 500px; height: 400px"><%= @wikipage.content %></textarea>	<br />
+<input type="submit" value="Update">
+	
+<% end %>

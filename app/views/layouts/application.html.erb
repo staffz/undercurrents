@@ -7,13 +7,20 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<% if logged_in? %>
-	logged in as <%= current_user.login %> <a href="/logout">log out</a><br />
-<% else %>
-	not logged in <a href="/login">login</a>
-<% end %>
-
-<%= yield %>
-
+	<div id="container">
+		<div id="header">
+			<img src="/images/logo.png">
+			 <div id="login-box">
+				<% if logged_in? %>
+					logged in as <%= current_user.login %> <a href="/logout">log out</a><br />
+				<% else %>
+					not logged in <a href="/login">login</a>
+				<% end %>
+			</div>
+		</div>
+		<div id="content"> 
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
