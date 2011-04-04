@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :games
   
   
+  
+  
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken

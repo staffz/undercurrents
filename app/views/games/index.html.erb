@@ -1,6 +1,16 @@
-
-
 <h1><%= @current_game.name %></h1>
+
+Owner: <%= @current_game.owner.login %><br />
+
+<% unless @current_game.game_permissions.empty? %>
+<ul>
+	<%= @current_game.game_permissions.each do |permission| %>
+	<li><%= permission.user.login %></li>
+	<% end%>
+</ul>
+<% end %>
+
+<a href="/invites/new">Add players</a>
 
 <p><%= @current_game.wiki_pages.find_by_url('index').content %></p>
 

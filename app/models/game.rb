@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
   after_create :create_wiki_start_page
   
   has_many :wiki_pages
+  has_many :game_permissions
   
   validates_uniqueness_of :name
   

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110402135736) do
+ActiveRecord::Schema.define(:version => 20110403122050) do
+
+  create_table "game_permissions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.boolean  "accepted"
+    t.boolean  "admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", :force => true do |t|
     t.string   "name"
