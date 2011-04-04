@@ -1,0 +1,12 @@
+NÅN jquerry autocompleter ? 
+
+
+<input name="colaborator" value="" id="colaborator-autocompleate" />
+
+
+<script>
+$("input#colaborator-autocompleate").autocomplete({
+    source: <%= @users.to_json%>
+});
+
+</script>

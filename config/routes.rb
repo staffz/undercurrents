@@ -2,6 +2,8 @@ Undercurrents::Application.routes.draw do
   resources :users
   resources :welcome
   resources :games
+  resources :invites
+  
   
   match '/wikis/:page_name/edit'  => 'wiki#edit'
   match '/wikis/:page_name/update'  => 'wiki#update'  
