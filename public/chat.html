@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Undercurrents Chat Tester</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="chat" style="border:1px solid red; width:400px; height:200px;"></div>
+	<br /><br />
+	<textarea id="chatmsg" style="width:400px; height:120px"></textarea><br />
+	<input type="button" value="Send" onclick="send_msg()" />	
+
+	<script type="text/javascript">
+		$(function(){
+			ident = Math.random();
+			ws = new WebSocket("ws://0.0.0.0:8080/ninja");
+			ws.onopen = function(){
+				console.log("connected");
+			}
+			ws.onmessage = function(p){
+				var payload = JSON.parse(p.data);
+				if(payload.sender != ident){
+					$("#chat").append($("<div>").html(payload.message));					
+				}
+			}
+			ws.onclose= function(){
+				console.log("Connection lost");
+			}
+		})
+		function send_msg(){
+			ws.send(JSON.stringify({message:$("#chatmsg").val(), sender: ident}));
+			$("#chatmsg").val("");
+		}
+	</script>
+</body>
+</html>

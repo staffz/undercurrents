@@ -4,14 +4,12 @@ gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'mysql2'
 gem 'sqlite3-ruby', :require => 'sqlite3'
-
 gem 'configatron', '2.6.3'
-
 gem 'acts_as_versioned', :git => "git://github.com/xspond/acts_as_versioned.git", :branch => "rails3"
-
 gem "RedCloth"
+gem 'daemon_controller', '0.2.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
