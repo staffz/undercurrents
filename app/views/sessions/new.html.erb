@@ -1,4 +1,10 @@
+
+
+<div style="width: 400px; float: left;">
+
 <h1>Log In</h1>
+
+
 
 <%= form_tag session_path do -%>
 <p><%= label_tag 'login' %><br />
@@ -15,7 +21,24 @@
 <p> <a href="/welcome">cancel</a> or <%= submit_tag 'Log in' %></p>
 <br />
 
-<p>
-	 <a href="/users/new">Create new user</a></p>
+
 
 <% end -%>
+
+</div>
+
+
+<div style="width: 280px; margin-left: 20px; float: left;">
+
+	<h2>New to undercurrents?</h2>
+	<p> No problem, we just need to create an account and them you are ready to play!
+		
+		<br />
+		<br />
+		<br />
+		
+		 <a href="/users/new"><input type="submit" value="Create new user" /></a></p>
+</div>
+
+
+<br style="clear: both" />

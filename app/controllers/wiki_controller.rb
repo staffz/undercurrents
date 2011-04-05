@@ -1,6 +1,6 @@
 class WikiController < ApplicationController
-  before_filter :require_game
-  
+  before_filter :require_game, :login_required 
+
   def update
         @wikipage = @current_game.wiki_pages.find_by_url(params[:page_name])
         @wikipage.content = params[:wiki_page][:content]

@@ -64,6 +64,69 @@ h1 {
 	margin-bottom: 25px;
 }
 
+h2 {
+	font-size: 18px;
+	margin-bottom: 15px;	
+}
+
+label {
+	font-size: 8px;
+	text-transform:uppercase;
+	color: #a1a1a1;
+	letter-spacing: 1px;
+	margin: 0px 0px 0px 0px;
+}
+
+
+
+input[type="text"]:focus, input[type="password"]:focus   {
+	-webkit-box-shadow: 0px 0px 5px #fff;
+	-moz-box-shadow: 0px 0px 5px #fff;
+
+}
+
+input[type="text"], input[type="password"]  {
+	background-color: #2b2725;
+	border: 0px solid;
+	height: 10px;
+	width: 200px;
+	color: #FFFFFF;
+	border-radius: 8px;
+	outline: none;
+	padding: 10px;
+	margin: 4px 0px 10px 0px;
+}
+
+
+
+input[type="submit"]:hover, input[type="submit"]:focus {
+	color: #FFF;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 5px #fff;
+	-moz-box-shadow: 0px 0px 5px #fff;	
+}
+
+input[type="submit"] {
+	background-color: #2f2c2a;
+	border: 0px solid;
+	color: #FFFFFF;
+	border-radius: 8px;
+	font-size: 8px;
+	outline: none;
+	
+	text-transform:uppercase;
+	color: #a1a1a1;
+	letter-spacing: 1px;
+	height: 24px;
+	width: 112px;	
+	-webkit-box-shadow:inset 0px 1px 1px #aaa;
+	-moz-box-shadow:inset 0px 1px 1px #aaa;
+	
+}
+
+
+
+
 p {
 	font-size: 14px;
 }
@@ -95,3 +158,4 @@ a {
 	padding: 20px 40px 10px 40px ;
 	
 }
+

@@ -3,9 +3,26 @@
 	<p>Undercurrents provides technical gameplay support to traditional tabletop role-playing by providing alternate communication channels, note taking support and media control. The aim is not to mediate the play activity completely, but rather to enhance the interaction through the inclusion of modern ICT. Undercurrents attempts to harness the boundless creativity of tabletop role-playing when combined with the strengths of computer role-playing; in effect, both eating the cookie and having it.</p>
 </div>
 
-<div style="width: 200px; float: left;">
+<div style="width: 200px; margin-left: 20px; float: left;">
 
 <% if authorized? %>
+ <h1>Your games</h1>
+<ul>
+	<% current_user.game_permissions.each do |game_permission| %>
+		<li><a href="http://<%= game_permission.game.domain%>.<%= configatron.base_url %>/games"> <%= game_permission.game.name%></a> <% if game_permission.admin %>- Admin<% end %>  </li>
+	<% end %>
+</ul>
+<% else %>
+<a href="/login">	Login to play </a>
+
+<% end %>
+
+
+
+</div>
+<br style="clear: both;">
+
+<!-- <% if authorized? %>
  <h1>Create new game</h1>
 	<% if flash[:error]%>
 		<p style="color: red"><%= flash[:error] %></p>
@@ -21,8 +38,4 @@
 <a href="/login">	Login to create a new game </a>
 
 <% end %>
-
-
-
-</div>
-<br style="clear: both;">
+-->
