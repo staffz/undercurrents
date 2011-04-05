@@ -13,10 +13,10 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<img src="/images/logo.png">
+			<a href="/"><img src="/images/logo.png"></a>
 			 <div id="login-box">
 				<% if logged_in? %>
-					logged in as <%= current_user.login %> <a href="/logout">log out</a><br />
+					logged in as  <a href="http://<%= configatron.base_url %>/users/show"><%= current_user.login %></a> -  <a href="http://<%= configatron.base_url %>/logout">log out</a><br />
 				<% else %>
 					not logged in <a href="/login">login</a>
 				<% end %>

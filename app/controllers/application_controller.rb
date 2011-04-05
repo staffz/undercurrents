@@ -7,19 +7,25 @@ class ApplicationController < ActionController::Base
     
     
   protected
-  
   def load_game
     return if request.subdomains.empty? || request.subdomains.first == 'www'
     require_game
   end
   
+  def require_game_and_access_to_game
+    require_game
+    unless @current_game.has_access?(@current_user)
+        redirect_to "http://www." +  configatron.base_url  + "/welcome" and return
+    end
+  end
+  
   def require_game
     return if request.subdomains.empty? || request.subdomains.first == 'www'
     
-    if Game.exists?(["name = ?", request.subdomains.first])
-      @current_game = Game.find_by_name(request.subdomains.first)
+    if Game.exists?(["domain = ?", request.subdomains.first])
+      @current_game = Game.find_by_domain(request.subdomains.first)
     else
-      redirect_to "http://www." +  configatron.base_url  + "/welcome"
+      redirect_to "http://www." +  configatron.base_url  + "/welcome" and return
     end    
   end
 

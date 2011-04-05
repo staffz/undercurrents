@@ -2,7 +2,14 @@ Undercurrents::Application.routes.draw do
   resources :users
   resources :welcome
   resources :games
-  resources :invites
+
+  resources :invites do 
+    member do 
+      get :delete
+      get :make_admin
+      get :revoke_admin
+    end
+  end
   
   
   match '/wikis/:page_name/edit'  => 'wiki#edit'

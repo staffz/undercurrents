@@ -1,12 +1,60 @@
-NÅN jquerry autocompleter ? 
+<b>Owner:</b><%= @current_game.owner.login%>
+
+<ul>
+	<% @current_game.game_permissions.each do |game_pm| %>
+		<li><%= game_pm.user.login %> <%= link_to "X", "/invites/#{game_pm.id}/delete" %> 
+			<% if game_pm.admin %>
+				<%= link_to "Revoke admin rights", "/invites/#{game_pm.id}/revoke_admin" %> 
+			<% else %>
+				<%= link_to "Make Admin", "/invites/#{game_pm.id}/make_admin" %> 			
+			<% end %>
+			
+			</li>
+	<% end %>
+</ul>
 
 
-<input name="colaborator" value="" id="colaborator-autocompleate" />
-
+<%= form_tag '/invites' do %>
+	<input name="invitee" value="" id="colaborator-autocompleate" />
+	<input type="submit" value="invite" id="colaborator-submit" disabled>
+<% end %>
 
 <script>
+function checkValidInput(){
+	valid = false;
+	for(var i = 0; i < users_in_system.length; i++){
+		if($('input#colaborator-autocompleate').val() == users_in_system[i] ){
+			valid = true;
+		}
+		console.log($('input#colaborator-autocompleate').val());
+		console.log(users_in_system[i]);
+	}
+	if(valid){
+		$("#colaborator-submit").removeAttr("disabled")
+	} else {
+		$("#colaborator-submit").attr("disabled", true)
+	}
+}
+
+
+var users_in_system = <%= raw @users.to_json%>;
+var valid = false;
+
 $("input#colaborator-autocompleate").autocomplete({
-    source: <%= @users.to_json%>
+    source: users_in_system,
+	select: function(event, ui){
+		console.log(ui);
+		checkValidInput();
+	}
 });
+
+
+$('input#colaborator-autocompleate').keyup(checkValidInput);
+
+
+
+
+
+
 
 </script>

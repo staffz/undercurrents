@@ -1,17 +1,22 @@
 <h1><%= @current_game.name %></h1>
 
+<div style="float: right; width: 200px; padding: 10px; background-color: #222222">
 Owner: <%= @current_game.owner.login %><br />
 
+
+<h2>Players</h2>
 <% unless @current_game.game_permissions.empty? %>
 <ul>
-	<%= @current_game.game_permissions.each do |permission| %>
+	<% @current_game.game_permissions.each do |permission| %>
 	<li><%= permission.user.login %></li>
-	<% end%>
+	<% end %>
 </ul>
 <% end %>
 
+<br  />
 <a href="/invites/new">Add players</a>
 
-<p><%= @current_game.wiki_pages.find_by_url('index').content %></p>
+</div>
+<p><%= raw RedCloth.new(@current_game.wiki_pages.find_by_url('index').content_with_links).to_html %></p>
 
 <a href="/wikis/index">Go to the wikki</a>

@@ -2,8 +2,9 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   has_many :games
+  has_many :game_permissions
   
-  
+  before_create :generate_api_key
   
   
   include Authentication
@@ -56,7 +57,8 @@ class User < ActiveRecord::Base
   end
 
   protected
-    
-
+  def  generate_api_key
+    self.api_key = Digest::SHA1.hexdigest([Time.now, (1..10).map{ rand.to_s }, "8i3,?"].flatten.join('--'))  
+  end
 
 end

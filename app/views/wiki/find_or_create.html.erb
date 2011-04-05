@@ -1,2 +1,2 @@
 <a href="/wikis/<%= @wikipage.url %>/edit">Edit</a>
-<div><%= raw RedCloth.new(@wikipage.content).to_html %></div>
+<div><%= raw RedCloth.new(@wikipage.content_with_links).to_html %></div>

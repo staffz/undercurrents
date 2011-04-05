@@ -1,0 +1,10 @@
+<h1><%= @current_user.name %></h1>
+
+<b>Login:</b><%= @current_user.login%>
+
+<h2>Current games </h2>
+<ul>
+	<% @current_user.game_permissions.each do |game_permission| %>
+		<li><a href="http://<%= game_permission.game.domain%>.<%= configatron.base_url %>/games"> <%= game_permission.game.name%></a> <% if game_permission.admin %>- Admin<% end %>  </li>
+	<% end %>
+</ul>

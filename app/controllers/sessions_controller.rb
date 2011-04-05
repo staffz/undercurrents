@@ -6,6 +6,17 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # TODO: FIX
+  def device_login
+    require_game
+    user = User.authenticate(params[:login], params[:password])
+    if user
+      
+    else
+      
+    end
+  end
+
   def create
     logout_keeping_session!
     user = User.authenticate(params[:login], params[:password])

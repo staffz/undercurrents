@@ -5,7 +5,7 @@ class CreateGamePermissions < ActiveRecord::Migration
       t.integer :game_id
       t.boolean :accepted
       t.boolean :admin
-
+      t.string :api_key, :limit => 40
       t.timestamps
     end
   end
